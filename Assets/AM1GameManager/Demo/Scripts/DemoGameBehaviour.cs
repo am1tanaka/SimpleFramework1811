@@ -64,10 +64,12 @@ public class DemoGameBehaviour : MonoBehaviour {
         GameManager.AddStage();
         if (GameManager.Stage <2)
         {
-            GameManager.Instance.LoadScene("DemoStage"+(GameManager.Stage+1));
+            // 次のシーンへ。BGMは継続
+            GameManager.Instance.LoadScene("DemoStage"+(GameManager.Stage+1), false);
         }
         else
         {
+            // タイトルへ。BGMは停止
             GameManager.Instance.LoadScene("DemoTitle");
         }
     }

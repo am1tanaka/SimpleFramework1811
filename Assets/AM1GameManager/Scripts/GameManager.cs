@@ -138,7 +138,7 @@ public class GameManager : Singleton<GameManager> {
         // フェードアウト時のBGMの連動を制御
         if (isBGMStop && fade.fadeState == Fade.FADE_STATE.OUT)
         {
-            soundManager.SetBGMVolume(fade.fadeAlpha);
+            soundManager.SetBGMVolume(1f-fade.fadeAlpha);
         }
         // パラメーターの表示
         scoreText.enabled = isScoreVisible;
@@ -150,13 +150,13 @@ public class GameManager : Singleton<GameManager> {
     /// フェードインさせます。
     /// フェードの秒数と色はデフォルトの設定のものです。
     /// StartCoroutine()で呼び出してください。
-    /// フェード中かどうかをisFadingがtrueかで
+    /// フェード中かはisFadingがtrueかで
     /// 確認できるので、キー操作の無効などは
     /// このフラグでチェックしてください。
     /// </summary>
     /// <param name="scene">シーン名</param>
-    /// <param name="isbgmstop">BGMをフェードアウトさせたい時、true。デフォルトはfalse</param>
-    public void LoadScene(string scene, bool isbgmstop=false)
+    /// <param name="isbgmstop">BGMをフェードアウトさせたい時はtrueを渡します。デフォルトはtrueです。</param>
+    public void LoadScene(string scene, bool isbgmstop=true)
     {
         StartCoroutine(loadScene(scene, defaultFadeTime, defaultFadeColor, isbgmstop));
     }
