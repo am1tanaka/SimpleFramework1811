@@ -1,0 +1,2 @@
+# SimpleFramework1811
+Unity用の簡易フレームワーク2018年11月版。Unity2017.x以降用
